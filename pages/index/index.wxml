@@ -1,0 +1,64 @@
+<!--index.wxml-->
+<view>
+  <!-- backgroud -->
+  <!-- <image class="bg" src="cloud://tianye0718-i613d.7469-tianye0718-i613d-1256345756/werewolf/backgroud-1.jpeg" mode="aspectFill"></image> -->
+  <view class="section-title">神民配置</view>
+  <view class="section-items">
+    <view bindtap="gYYJPressed" class="section-item {{game.gods.g_yyj ? 'selected' : ''}}">预言家</view>
+    <view bindtap="gNWPressed" class="section-item {{game.gods.g_nw ? 'selected' : ''}}">女巫</view>
+    <view bindtap="gLRPressed" class="section-item {{game.gods.g_lr ? 'selected' : ''}}">猎人</view>
+    <view bindtap="gSWPressed" class="section-item {{game.gods.g_sw ? 'selected' : ''}}">守卫</view>
+    <view bindtap="gQSPressed" class="section-item {{game.gods.g_qs ? 'selected' : ''}}">骑士</view>
+  </view>
+  <view class="section-title">狼人配置</view>
+  <view class="section-items">
+    <view bindtap="wBLWPressed" class="section-item {{game.wolves.w_blw ? 'selected' : ''}}">白狼王</view>
+  </view>
+  <view class="divline"></view>
+  <view class="stepper-container">
+    <text class="stepper-label">普通狼人数量</text>
+    <view class="stepper">
+      <text class="{{game.wolves.w_lr > 0 ? 'normal' : 'disable'}}" bindtap="lrSubPressed">-</text>
+      <view class="stepper-value">{{game.wolves.w_lr}}</view>
+      <text class="normal" bindtap="lrAddPressed">+</text>
+    </view>
+  </view>
+  <view class="section-title">村民配置</view>
+  <view class="stepper-container">
+    <text class="stepper-label">村民数量</text>
+    <view class="stepper">
+      <text class="{{game.villagers.v_cm > 0 ? 'normal' : 'disable'}}" bindtap="cmSubPressed">-</text>
+      <view class="stepper-value">{{game.villagers.v_cm}}</view>
+      <text class="normal" bindtap="cmAddPressed">+</text>
+    </view>
+  </view>
+  <view class="section-title">技能配置</view>
+  <view class="config">
+    <text class="config-name">解药</text>
+    <text class="config-desc">{{game.configs.jy.options[game.configs.jy.selected]}}</text>
+    <image bindtap="configJYPressed" class="config-choose" src="/images/right.png"></image>
+  </view>
+  <view class="divline"></view>
+  <view class="config">
+    <text class="config-name">毒药</text>
+    <text class="config-desc">{{game.configs.dy.options[game.configs.dy.selected]}}</text>
+    <image bindtap="configDYPressed" class="config-choose" src="/images/right.png"></image>
+  </view>
+  <view class="divline"></view>
+  <view class="config">
+    <text class="config-name">守卫</text>
+    <text class="config-desc">{{game.configs.sw.options[game.configs.sw.selected]}}</text>
+    <image bindtap="configSWPressed" class="config-choose" src="/images/right.png"></image>
+  </view>
+  <button bindtap="startGame" type="primary">开始游戏 ( {{m1.getUserCount(game)}} 人局 )</button>
+</view>
+
+<wxs module="m1">
+  var getUserCount = function(game) {
+    var gods = game.gods.g_yyj + game.gods.g_nw + game.gods.g_lr + game.gods.g_sw + game.gods.g_qs;
+    var wolves = game.wolves.w_blw + game.wolves.w_lr;
+    var villagers = game.villagers.v_cm;
+    return gods + wolves + villagers;
+  }
+  module.exports.getUserCount = getUserCount;
+</wxs>

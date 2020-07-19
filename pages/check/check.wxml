@@ -1,0 +1,24 @@
+<!--pages/check/check.wxml-->
+<view class="container">
+    <input value="{{seatNumber}}" bindinput="seatNumberInputted" class="seat-input" type="number" placeholder="请输入您的座位号"></input>
+    <view class="btn-group">
+      <button bindtap="cardButtonPressed" type="primary" disabled="{{!canIGetAnCard}}">我要抽卡牌</button>
+      <button bindtap="justiceButtonPressed" type="warn" disabled="{{!canIBeJustice}}">我要做法官</button>
+    </view>
+    <view class="logs">
+      <view>卡牌抽取记录</view>
+      <view class="red" wx:if="{{game.justice}}">{{game.justice}} 号玩家选择了法官</view>
+      <view wx:for="{{game.players}}">{{item.seat}} 号玩家抽取了一张卡牌</view>
+    </view>
+    <view class="start-btn">
+      <button bindtap="startGame" type="primary">发牌完毕，进入第一夜</button>
+    </view>
+</view>
+
+<!-- 自定义弹窗 -->
+<view class="modal-mask" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">您的角色是</view>
+    <image src="{{roleImageUrl}}" mode="aspectFill"></image>
+    <button bindtap="onConfirmRole" type="primary">收到！</button>
+</view>

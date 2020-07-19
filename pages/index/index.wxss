@@ -1,0 +1,86 @@
+.bg {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  z-index: -100;
+  opacity: 0.7;
+} 
+.section-title {
+  width: 100%;
+  background-color: #f1f1f1;
+  padding: 20rpx;
+  margin: 10rpx 0;
+  color: gray;
+}
+.section-items {
+  display: flex;
+}
+.section-item {
+  border: 2rpx solid #f1f1f1;
+  border-radius: 20rpx;
+  margin: 10rpx;
+  padding: 10rpx 20rpx;
+}
+.divline {
+  background: #f1f1f1;
+  width: 100%;
+  height: 2rpx;
+}
+.stepper-container {
+  display: flex;
+  padding: 20rpx;
+  line-height: 60rpx;
+  align-items: center;
+}
+.stepper-label {
+  flex: 1;
+}
+.stepper {
+  width: 250rpx;
+  display: flex;
+  justify-content: flex-end;
+  border: 2rpx solid #f1f1f1;
+  border-radius: 10rpx;
+  font-size: large;
+}
+.stepper text {
+  width: 60rpx;
+  text-align: center;
+  font-size: x-large;
+}
+.stepper-value {
+  flex: 1;
+  text-align: center;
+  border-left: 2rpx solid #f1f1f1;
+  border-right: 2rpx solid #f1f1f1;
+}
+.disable {
+  color: #f1f1f1;
+}
+.normal {
+  color: #1AAD19;
+}
+.selected {
+  background-color: #1AAD19;
+  color: white;
+}
+.config {
+  display: flex;
+  padding: 20rpx;
+  line-height: 60rpx;
+  align-items: center;
+}
+.config-name {
+  width: 100rpx;
+}
+.config-desc {
+  flex: 1;
+  text-align: right;
+  margin-right: 40rpx;
+  color: gray;
+}
+.config-choose {
+  width: 64rpx;
+  height: 64rpx;
+}
